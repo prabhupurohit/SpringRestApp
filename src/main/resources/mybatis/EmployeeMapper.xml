@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.pcp.innovation.mappers.EmployeeMapper">
+
+	<resultMap id="EmployeeMap" type="com.pcp.innovation.model.Employee" >
+		<result column="EMP_ID" property="empId" jdbcType="INTEGER" />
+		<result column="DEPT_ID" property="deptId" jdbcType="INTEGER" />
+		<result column="FIRST_NAME" property="firstName" jdbcType="VARCHAR" />
+		<result column="LAST_NAME" property="lastName" jdbcType="VARCHAR" />
+		<result column="EMAIL_ID" property="emailId" jdbcType="VARCHAR" />
+		<result column="PRIMARY_NO" property="primaryNo" jdbcType="VARCHAR" />
+		<result column="ADDRESS1" property="address1" jdbcType="VARCHAR" />
+		<result column="ADDRESS2" property="address2" jdbcType="VARCHAR" />
+		<result column="CITY" property="city" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+		<result column="ZIP" property="zip" jdbcType="VARCHAR" />
+		<result column="COUNTRY" property="country" jdbcType="VARCHAR" />
+		<result column="DESGN" property="desgn" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="selectEmployee" resultMap="EmployeeMap" parameterType="int">
+		SELECT EMP_ID, DEPT_ID, DESGN 
+			FROM PCPINOV.EMPLOYEE 
+			WHERE EMP_ID={emp_Id};
+	</select>
+
+</mapper>
